@@ -1,0 +1,4 @@
+dependencies {
+    implementation project(':toy-msa-common')
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+}

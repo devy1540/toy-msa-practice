@@ -1,0 +1,31 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: toy-msa-gateway
+  cloud:
+    gateway:
+      default-filters:
+        - name: GlobalFilter
+          args:
+            baseMessage: "hello world"
+            preLogger: true
+            postLogger: true
+      routes:
+        - id: toy-msa-api-01
+          uri: http://localhost:8100/
+          predicates:
+            - Path=/toy-msa-api-01/**
+          filters:
+            - RewritePath=/toy-msa-api-01/(?<segment>.*), /$\{segment}
+        - id: toy-msa-api-02
+          uri: http://localhost:8101/
+          predicates:
+            - Path=/toy-msa-api-02/**
+          filters:
+            - RewritePath=/toy-msa-api-02/(?<segment>.*), /$\{segment}
+
+logging:
+  pattern:
+    console: "%clr(%d{${LOG_DATEFORMAT_PATTERN:yyyy-MM-dd}}){faint} %clr(%d{${LOG_DATEFORMAT_PATTERN:HH:mm:ss.SSS}}){magenta} - %clr(${LOG_LEVEL_PATTERN:%-5p}) %clr(---){faint} %clr([ %-4.15t ]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:%wEx}"

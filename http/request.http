@@ -1,0 +1,2 @@
+### [api01] get method with gateway
+GET http://localhost:8000/toy-msa-api-01/api/test/get-test-01

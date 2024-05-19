@@ -1,0 +1,6 @@
+rootProject.name = 'toy-msa-practice'
+include 'toy-msa-api-01'
+include 'toy-msa-api-02'
+include 'toy-msa-gateway'
+include 'toy-msa-common'
+
