@@ -1,5 +1,10 @@
 dependencies {
     implementation 'org.apache.commons:commons-lang3:3.14.0'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
+
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
+
 }
 
 bootJar.enabled = false

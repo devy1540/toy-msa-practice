@@ -4,6 +4,12 @@ server:
 spring:
   application:
     name: toy-msa-api-01
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://keycloak.devyoon.kr/realms/jungryrealm
+          jwk-set-uri: https://keycloak.devyoon.kr/realms/jungryrealm/protocol/openid-connect/certs
 
 logging:
   pattern:
